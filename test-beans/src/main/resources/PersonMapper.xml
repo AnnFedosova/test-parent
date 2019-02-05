@@ -4,7 +4,8 @@
 
     <select
         id="getPersonById"
-        parameterType="java.lang.Long"
+        parameterType="Integer"
+        resultType="Person"
     >
         select * from person where id = #{id}
     </select>
@@ -13,5 +14,15 @@
     <select id="getPerson" resultType="Person">
         select * from person
     </select>
+
+    <insert
+            id="addPerson"
+            useGeneratedKeys="true"
+            keyProperty="id"
+    >
+  insert into person ("fullName", "birthDay", "gender")
+  values (#{fullName},#{birthDay},#{gender})
+  </insert>
+
 
 </mapper>

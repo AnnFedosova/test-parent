@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -18,8 +19,16 @@ public class TestWork {
                     .getResourceAsReader("mybatis-config.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             personMapper = sqlSessionFactory.openSession().getMapper(PersonMapper.class);
+
+            //Person person1 = personMapper.getPersonById(1);
+
+            Person newPerson = new Person("Nooot Nicolas", new Date(), "f");
+            personMapper.addPerson(newPerson);
             List<Person> persons = personMapper.getPerson();
-            Person person = personMapper.getPersonById(1L);
+
+            List<Person> persons1 = personMapper.getPerson();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

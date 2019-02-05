@@ -3,15 +3,35 @@
 import java.util.Date;
 
 public class Person {
-    private Long id;
+    private Integer id;
     private String fullName;
     private Date birthDay;
-    private char gender; // "m" or "f"
+    private String gender; // "m" or "f"
 
-    public Long getId() {
+    public Person(Integer id, String fullName, java.util.Date birthDay, String gender) {
+        this.id = id;
+        this.fullName = fullName;
+        this.birthDay = birthDay;
+        this.gender = gender;
+    }
+
+    public Person(String fullName, java.util.Date birthDay, String gender) {
+        this.fullName = fullName;
+        this.birthDay = birthDay;
+        this.gender = gender;
+    }
+
+    public Person(Integer id, String fullName, java.sql.Date birthDay, String gender) {
+        this.id = id;
+        this.fullName = fullName;
+        this.birthDay = birthDay;
+        this.gender = gender;
+    }
+
+    public Integer getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getFullName() {
@@ -27,15 +47,12 @@ public class Person {
         this.birthDay = birthDay;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
-    /*public List<Connection> getConnections() {
-        return connections;
-    }
-    */
+
 }
 
