@@ -1,12 +1,6 @@
-package net.proselyte.testui;
+package net.proselyte.test_ui;
 
 import javax.faces.bean.ManagedBean;
-
-/**
- * Managed bean for home.xhtml page
- *
- * @version 1.0
- */
 
 @ManagedBean(name = "helloWorld", eager = true)
 public class HelloWorld {
