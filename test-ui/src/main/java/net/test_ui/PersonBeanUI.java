@@ -3,16 +3,16 @@ package net.test_ui;
 import javax.faces.bean.ManagedBean;
 
 
-@ManagedBean(name = "personBean", eager = true)
-public class PersonBean {
+@ManagedBean(name = "personBeanUI", eager = true)
+public class PersonBeanUI {
 
-    //beans.PersonBean2 personBean2;
+    //PersonBean personBean2;
     public String fullName = "Nic";
 
-    public PersonBean() {}
+    public PersonBeanUI() {}
 
     public String getMessage() {
-        return "Hello PersonBean!";
+        return "Hello PersonBeanUI!";
     }
 
     public String getFullName() {

@@ -30,7 +30,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>beansGroup</groupId>
+            <groupId>fedosova</groupId>
             <artifactId>test-beans</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>

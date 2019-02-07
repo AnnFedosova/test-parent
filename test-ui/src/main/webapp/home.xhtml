@@ -1,13 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
 <head>
     <title>First JSF Application</title>
 </head>
 
 <body>
-    #{helloWorld.message}
-    <br></br>
-    #{personBean2.fullName}
+<jsp:useBean id="personBean" scope="request" type="beans.PersonBean" beanName="personBean" class="beans.PersonBean"/>
+<jsp:useBean id="helloWorld" scope="request" type="net.test_ui.HelloWorld"/>
+
+${helloWorld.message}
+<br/>
+${personBean.fullName}
+<br/>
+${helloWorld.message}
+
 </body>
 </html>
