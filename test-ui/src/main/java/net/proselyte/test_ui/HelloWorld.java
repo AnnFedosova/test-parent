@@ -2,6 +2,7 @@ package net.proselyte.test_ui;
 
 import javax.faces.bean.ManagedBean;
 
+
 @ManagedBean(name = "helloWorld", eager = true)
 public class HelloWorld {
     public HelloWorld() {
