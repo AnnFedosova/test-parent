@@ -1,4 +1,4 @@
-package net.proselyte.test_ui;
+package net.test_ui;
 
 import javax.faces.bean.ManagedBean;
 
