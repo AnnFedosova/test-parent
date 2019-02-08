@@ -1,34 +1,30 @@
-package dao;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.List;
-
-import mapper.*;
+import mapper.Person;
+import mapper.PersonMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import static org.apache.ibatis.io.Resources.getResourceAsReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.List;
 
 public class PersonDAO {
 
     private PersonMapper personMapper;
 
     public PersonDAO(){}
+    private SqlSessionFactory sqlSessionFactory;
+    Reader reader = null;
 
     private void InitSession()
     {
-
         try {
-            Reader reader = null;
-            reader = Resources.getResourceAsReader("mybatis/mybatis-config.xml");
-            //Reader reader = getResourceAsReader("/mybatis-config.xml");
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+            reader = Resources.getResourceAsReader("mybatis-config.xml");
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             personMapper = sqlSessionFactory.openSession().getMapper(PersonMapper.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /*
@@ -41,7 +37,7 @@ public class PersonDAO {
     }
 */
 
-    public List<Person> getAllPersons()
+    public List<Person> getPersons()
     {
         InitSession();
         List<Person> personList = personMapper.getAllPersons();
@@ -52,12 +48,8 @@ public class PersonDAO {
 
     public Person getPersonById(int personId)
     {
-        //personId = 1;
         InitSession();
-        Person person = personMapper.getPersonById(personId);
-        //CommitSession();
-
-        return person;
+        return personMapper.getPersonById(personId);
     }
 
 

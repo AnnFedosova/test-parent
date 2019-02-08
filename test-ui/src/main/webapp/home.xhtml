@@ -1,20 +1,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:jsp="http://java.sun.com/JSP/Page">
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
-    <title>First JSF Application</title>
+    <h:outputStylesheet library="css" name="table-style.css"/>
+    <title>People table</title>
 </head>
 
 <body>
-<jsp:useBean id="personBean" scope="request" type="beans.PersonBean" beanName="personBean" class="beans.PersonBean"/>
+<jsp:useBean id="personBean" scope="request" type="PersonBean" beanName="personBean" class="PersonBean"/>
 <jsp:useBean id="helloWorld" scope="request" type="net.test_ui.HelloWorld"/>
 
 ${helloWorld.message}
 <br/>
-${personBean.fullName}
+${personBean.person.fullName}
+
 <br/>
-${helloWorld.message}
+
+
+<h1>People table</h1>
+
+<h:dataTable value="#{personBean.persons}"
+             var="person"
+
+             styleClass="order-table"
+             headerClass="order-table-header"
+             rowClasses="order-table-odd-row,order-table-even-row">
+    <h:column>
+        <!-- column header -->
+        <f:facet name="header">Person Name</f:facet>
+        <!-- row record -->
+        #{person.fullName}
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Birthday</f:facet>
+        #{person.birthDay}
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Gender</f:facet>
+        #{person.gender}
+    </h:column>
+
+</h:dataTable>
+
 
 </body>
 </html>
