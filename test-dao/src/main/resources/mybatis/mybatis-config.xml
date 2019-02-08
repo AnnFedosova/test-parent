@@ -20,7 +20,8 @@
         </environment>
     </environments>
 
+
     <mappers><!--в данном блоке необходимо описать маперы, которые используются в проекте-->
-        <mapper class="PersonMapper"/>
+        <mapper class="mapper.PersonMapper"/>
     </mappers>
 </configuration>

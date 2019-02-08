@@ -1,12 +1,14 @@
+package mapper;
+
 import java.util.List;
 
 public interface PersonMapper {
 
     //вернет одного пользователя по id;
-    Person getPersonById(Integer id);
+    mapper.Person getPersonById(Integer id);
 
     //вернет список пользователей;
-    List<Person> getPerson();
+    List<mapper.Person> getAllPersons();
 
-    void addPerson(Person newPerson);
+    void addPerson(mapper.Person newPerson);
 }

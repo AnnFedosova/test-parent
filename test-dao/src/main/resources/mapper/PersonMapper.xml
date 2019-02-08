@@ -1,17 +1,18 @@
 <!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="PersonMapper">
+<mapper namespace="mapper.PersonMapper">
 
     <select
         id="getPersonById"
-        parameterType="Integer"
-        resultType="Person"
+        parameterType="java.lang.Integer"
+        resultType="mapper.Person"
     >
         select * from person where id = #{id}
     </select>
 
 
-    <select id="getPerson" resultType="Person">
+    <select id="getAllPersons"
+            resultType="mapper.Person">
         select * from person
     </select>
 
@@ -23,6 +24,5 @@
   insert into person ("fullName", "birthDay", "gender")
   values (#{fullName},#{birthDay},#{gender})
   </insert>
-
 
 </mapper>
