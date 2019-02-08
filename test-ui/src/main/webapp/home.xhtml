@@ -1,34 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:jsp="http://java.sun.com/JSP/Page"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://primefaces.org/ui"
+>
+
 <head>
-    <h:outputStylesheet library="css" name="table-style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/table-style.css"/>
     <title>People table</title>
 </head>
 
 <body>
+
+
 <jsp:useBean id="personBean" scope="request" type="PersonBean" beanName="personBean" class="PersonBean"/>
 <jsp:useBean id="helloWorld" scope="request" type="net.test_ui.HelloWorld"/>
 
+<!--
 ${helloWorld.message}
 <br/>
+
 ${personBean.person.fullName}
 
 <br/>
-
+-->
 
 <h1>People table</h1>
 
 <h:dataTable value="#{personBean.persons}"
              var="person"
+             styleClass="table"
+             headerClass="table-header"
+             rowClasses="table-odd-row"
 
-             styleClass="order-table"
-             headerClass="order-table-header"
-             rowClasses="order-table-odd-row,order-table-even-row">
+>
     <h:column>
         <!-- column header -->
         <f:facet name="header">Person Name</f:facet>
