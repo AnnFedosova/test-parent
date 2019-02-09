@@ -15,11 +15,7 @@
     <title>People table</title>
 </head>
 
-<body>
-
-
-<jsp:useBean id="personBean" scope="request" type="PersonBean" beanName="personBean" class="PersonBean"/>
-<jsp:useBean id="helloWorld" scope="request" type="net.test_ui.HelloWorld"/>
+<h:body>
 
 <!--
 ${helloWorld.message}
@@ -31,7 +27,28 @@ ${personBean.person.fullName}
 -->
 
 <h1>People table</h1>
+    <h:form id="form1">
+        <h:commandButton id="button1"
+                         value="Add new person"
+                         action="#{addPersonButtonBean.buttonAction}"
+                         styleClass="button"
+        />
 
+        <h:commandButton id="button2"
+                         value="Edit person"
+                         action="#{addPersonButtonBean.buttonAction}"
+                         styleClass="button"
+        />
+        <h:commandButton id="button3"
+                         value="Delete person"
+                         action="#{addPersonButtonBean.buttonAction}"
+                         styleClass="button"
+        />
+
+    </h:form>
+
+
+    <br/>
 <h:dataTable value="#{personBean.persons}"
              var="person"
              styleClass="table"
@@ -59,5 +76,5 @@ ${personBean.person.fullName}
 </h:dataTable>
 
 
-</body>
+</h:body>
 </html>
