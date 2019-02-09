@@ -3,10 +3,11 @@ import mapper.Person;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
 
-@ManagedBean(name = "personBean", eager = true)
-public class PersonBean {
+@ManagedBean(name = "personsBean", eager = true)
+public class PersonsBean {
 
     private String fullName = "Niccccc";
+
 
     public String getMessage() {
         return "Hello PersonBean!";
@@ -25,7 +26,7 @@ public class PersonBean {
     private Person person;
 
 
-    public PersonBean()
+    public PersonsBean()
     {
         PersonDAO personDAO = new PersonDAO();
         persons = personDAO.getPersons();

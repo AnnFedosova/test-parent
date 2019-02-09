@@ -21,21 +21,21 @@ public class PersonDAO {
         try {
             reader = Resources.getResourceAsReader("mybatis-config.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-            personMapper = sqlSessionFactory.openSession().getMapper(PersonMapper.class);
+            personMapper = sqlSessionFactory.openSession(true).getMapper(PersonMapper.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /*
+/*
     void CommitSession()
     {
         //TODO сделать коммит
-        //sqlSessionFactory.getConfiguration();
-        //this.session.commit();
-        //this.session.close();
-    }
-*/
+        sqlSessionFactory
+        this.session.commit();
+        this.session.close();
+    }*/
+
 
     public List<Person> getPersons()
     {
@@ -52,5 +52,9 @@ public class PersonDAO {
         return personMapper.getPersonById(personId);
     }
 
-
+    public void addPerson(Person person)
+    {
+        InitSession();
+        personMapper.addPerson(person);
+    }
 }

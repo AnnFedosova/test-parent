@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>New person</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+    <p:outputLabel for="fullName"
+                   value="Full name:" />
+    <p:inputText id="fullName"
+                     value="#{newPersonBean.person.fullName}"
+                     required="true"
+    />
+
+    <br/><br/>
+
+    <p:outputLabel for="birthDay"
+                   value="BirthDay:" />
+    <p:calendar id="birthDay"
+                value="#{newPersonBean.person.birthDay}"
+                required="true"
+    />
+
+
+    <br/><br/>
+
+    <p:selectOneRadio id="console"
+                      value="#{newPersonBean.person.gender}"
+                      required="true">
+
+        <f:selectItem itemLabel="Male" itemValue="m" />
+        <f:selectItem itemLabel="Female" itemValue="f" />
+
+    </p:selectOneRadio>
+
+    <br/><br/>
+
+
+        <p:growl id="growl" showDetail="true" />
+
+        <p:commandButton value="Save" action="#{newPersonBean.addNewPerson}">
+            <p:ajax event="dialogReturn" listener="#{newPersonBean.addNewPerson}" update="growl" />
+        </p:commandButton>
+    </h:form>
+
+    <br/><br/><br/>
+</h:body>
+
+</html>

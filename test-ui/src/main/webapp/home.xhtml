@@ -16,18 +16,18 @@
     <h1>People table</h1>
 
     <h:form>
-        <p:commandButton value="Add new person" id="addPersonButton" action="#{buttonView.buttonAction}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+        <p:commandButton value="Add new person" id="addPersonButton" action="#{newPersonBean.newPersonButtonAction}" style="margin-right:20px;" styleClass="ui-priority-primary" />
 
-        <p:commandButton value="Edit person" id="nonAjax" action="#{buttonView.buttonAction}" style="margin-right:20px;" ajax="false" />
+        <p:commandButton value="Edit person" id="nonAjax" action="#{newPersonBean.newPersonButtonAction}" style="margin-right:20px;" ajax="true" />
 
-        <p:commandButton value="Delete person" disabled="true" id="withIcon" action="#{buttonView.buttonAction}"  style="margin-right:20px;"/>
+        <p:commandButton value="Delete person" disabled="true" id="withIcon" action="#{newPersonBean.newPersonButtonAction}" style="margin-right:20px;"/>
 
     </h:form>
 
     <br/>
 
     <p:dataTable var="person"
-                 value="#{personBean.persons}"
+                 value="#{personsBean.persons}"
     >
 
         <p:column headerText="Name">

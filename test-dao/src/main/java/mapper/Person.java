@@ -15,6 +15,8 @@ public class Person {
         this.gender = gender;
     }
 
+    public Person(){};
+
     public Person(String fullName, java.util.Date birthDay, String gender) {
         this.fullName = fullName;
         this.birthDay = birthDay;
