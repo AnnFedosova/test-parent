@@ -5,75 +5,45 @@
       xmlns:jsp="http://java.sun.com/JSP/Page"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-
       xmlns:p="http://primefaces.org/ui"
 >
-
-<head>
-    <link rel="stylesheet" type="text/css" href="css/table-style.css"/>
+<h:head>
     <title>People table</title>
-</head>
+</h:head>
 
 <h:body>
 
-<!--
-${helloWorld.message}
-<br/>
+    <h1>People table</h1>
 
-${personBean.person.fullName}
+    <h:form>
+        <p:commandButton value="Add new person" id="addPersonButton" action="#{buttonView.buttonAction}" style="margin-right:20px;" styleClass="ui-priority-primary" />
 
-<br/>
--->
+        <p:commandButton value="Edit person" id="nonAjax" action="#{buttonView.buttonAction}" style="margin-right:20px;" ajax="false" />
 
-<h1>People table</h1>
-    <h:form id="form1">
-        <h:commandButton id="button1"
-                         value="Add new person"
-                         action="#{addPersonButtonBean.buttonAction}"
-                         styleClass="button"
-        />
-
-        <h:commandButton id="button2"
-                         value="Edit person"
-                         action="#{addPersonButtonBean.buttonAction}"
-                         styleClass="button"
-        />
-        <h:commandButton id="button3"
-                         value="Delete person"
-                         action="#{addPersonButtonBean.buttonAction}"
-                         styleClass="button"
-        />
+        <p:commandButton value="Delete person" disabled="true" id="withIcon" action="#{buttonView.buttonAction}"  style="margin-right:20px;"/>
 
     </h:form>
 
-
     <br/>
-<h:dataTable value="#{personBean.persons}"
-             var="person"
-             styleClass="table"
-             headerClass="table-header"
-             rowClasses="table-odd-row"
 
->
-    <h:column>
-        <!-- column header -->
-        <f:facet name="header">Person Name</f:facet>
-        <!-- row record -->
-        #{person.fullName}
-    </h:column>
+    <p:dataTable var="person"
+                 value="#{personBean.persons}"
+    >
 
-    <h:column>
-        <f:facet name="header">Birthday</f:facet>
-        #{person.birthDay}
-    </h:column>
+        <p:column headerText="Name">
+            <h:outputText value="#{person.fullName}" />
+        </p:column>
 
-    <h:column>
-        <f:facet name="header">Gender</f:facet>
-        #{person.gender}
-    </h:column>
+        <p:column headerText="BirthDay"
+                  sortBy="#{person.birthDay}"
+        >
+            <h:outputText value="#{person.birthDay}" />
+        </p:column>
 
-</h:dataTable>
+        <p:column headerText="Gender">
+            <h:outputText value="#{person.gender}" />
+        </p:column>
+    </p:dataTable>
 
 
 </h:body>
