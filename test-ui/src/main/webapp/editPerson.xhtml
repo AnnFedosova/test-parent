@@ -29,8 +29,7 @@
 
         <br/><br/>
 
-        <p:selectOneRadio id="console"
-                          value="#{editPersonBean.person.gender}"
+        <p:selectOneRadio value="#{editPersonBean.person.gender}"
                           required="true">
 
             <f:selectItem itemLabel="Male" itemValue="m" />
@@ -40,17 +39,12 @@
 
         <br/><br/>
 
-
-        <p:growl id="growl" showDetail="true" />
-
-        <p:commandButton value="Save" action="#{editPersonBean.editPerson}">
-            <p:ajax event="dialogReturn" listener="#{editPersonBean.editPerson}" update="growl" />
-
-        </p:commandButton>
+        <p:commandButton value="Save" action="#{editPersonBean.editPerson}"/>
 
     </h:form>
 
     <br/><br/><br/>
+
 </h:body>
 
 </html>

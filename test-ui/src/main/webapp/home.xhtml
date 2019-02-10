@@ -48,13 +48,15 @@
         <br/>
         <p:commandButton value="Edit person"
                          action="#{editPersonBean.editPersonButtonAction(personsBean.selectedPerson)}"
-                         style="margin-right:20px;" />
+                         style="margin-right:20px;"
+                         update=":DTform"/>
 
 
         <p:commandButton value="Add new person"
                          id="addPersonButton"
                          action="#{newPersonBean.newPersonButtonAction}"
-                         style="margin-right:20px;" styleClass="ui-priority-primary" />
+                         style="margin-right:20px;"
+                         update=":DTform"/>
 
 
         <h:form>
@@ -63,7 +65,7 @@
             </p:commandButton>
 
             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
+                <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" update=":DTform"/>
                 <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no"  />
             </p:confirmDialog>
         </h:form>

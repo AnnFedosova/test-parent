@@ -1,16 +1,8 @@
-import mapper.Person;
-import mapper.PersonMapper;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
-import java.io.IOException;
-import java.io.Reader;
-
 public class TestWork {
 
+    /*
     public static void main(String[] args) throws IOException {
-
+        //нет коммита, чтоб смотреть изменения - getAllPersons
         SqlSessionFactory sqlSessionFactory;
         PersonMapper personMapper;
         Reader reader = null;
@@ -25,5 +17,5 @@ public class TestWork {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

@@ -1,13 +1,11 @@
 import mapper.Person;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import java.util.List;
 
 @ManagedBean(name = "personsBean", eager = true)
 @ViewScoped
-@SessionScoped
 public class PersonsBean {
 
     private Person selectedPerson;
@@ -18,7 +16,7 @@ public class PersonsBean {
     {
         PersonDAO personDAO = new PersonDAO();
         persons = personDAO.getPersons();
-        person = personDAO.getPersonById(1);
+        person = new Person();
         selectedPerson = new Person();
     }
 
