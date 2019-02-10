@@ -51,20 +51,22 @@
 
         </p:dataTable>
 
-        <p:commandButton process="peopleDT"
-                         update=":DTform:carDetail"
-                         value="Edit"
-                         oncomplete="PF('carDialog').show()"
-                         style="margin-right:20px;" styleClass="ui-priority-primary"/>
+
 
         <p:commandButton value="Add new person"
                          id="addPersonButton"
                          action="#{newPersonBean.newPersonButtonAction}"
                          style="margin-right:20px;" styleClass="ui-priority-primary" />
 
-        <p:dialog header="Person Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-            <p:outputPanel id="carDetail" style="text-align:center;">
-                <p:panelGrid  columns="2" rendered="#{not empty personsBean.selectedPerson}" columnClasses="label,value">
+        <p:commandButton process="peopleDT"
+                         update=":DTform"
+                         value="Edit"
+                         oncomplete="PF('personDialog').show()"
+                         style="margin-right:20px;" styleClass="ui-priority-primary"/>
+
+        <p:dialog header="Person Info" widgetVar="personDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:outputPanel id="personDetail" rendered="#{not empty personsBean.selectedPerson}" style="text-align:center;">
+                <p:panelGrid  columns="2"  columnClasses="label,value">
 
                     <h:outputText value="Id:" />
                     <h:outputText value="#{personsBean.selectedPerson.id}" />
