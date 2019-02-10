@@ -51,8 +51,4 @@ public class PersonsBean {
         personDAO.deletePersonById(selectedPerson.getId());
     }
 
-    public void editPersonButtonAction(){
-        PersonDAO personDAO = new PersonDAO();
-        personDAO.editPerson(selectedPerson);
-    }
 }

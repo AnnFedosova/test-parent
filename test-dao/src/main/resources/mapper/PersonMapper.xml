@@ -16,6 +16,13 @@
         select * from person
     </select>
 
+    <update
+            id = "updatePerson"
+            parameterType = "mapper.Person"
+    >
+      UPDATE person SET fullName = #{fullName} WHERE ID = #{id}
+   </update>
+
     <insert
             id="addPerson"
             useGeneratedKeys="true"
@@ -25,19 +32,14 @@
       values (#{fullName},#{birthDay},#{gender})
   </insert>
 
-    <delete id="deletePersonById"
+
+
+    <delete
+            id="deletePersonById"
             parameterType="java.lang.Integer"
             >
         delete from person where id = #{id}
     </delete>
-    
-    <update id="updatePerson"
-            parameterType="mapper.Person"
-            >
-        update person set person.fullName = #{fullName},
-                          person.birthDay = #{birthDay},
-                          person.gender = #{gender}
-                      where person.id = #{id}
-    </update>
+
 
 </mapper>

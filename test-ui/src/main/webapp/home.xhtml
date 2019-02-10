@@ -46,10 +46,25 @@
                 <h:outputText value="#{person.gender}" />
             </p:column>
 
-
-
-
         </p:dataTable>
+
+        <p:commandButton value="Edit person"
+                         id="editPersonButton"
+                         action="#{editPersonBean.editPersonButtonAction}"
+                         style="margin-right:20px;" styleClass="ui-priority-primary" />
+
+        <p:commandButton value="Edit2"
+                         action="#{editPersonBean.editPersonButtonAction(personsBean.selectedPerson)}">
+            <p:ajax event="dialogReturn" listener="#{editPersonBean.editPersonButtonAction(personsBean.selectedPerson)}"  />
+
+        </p:commandButton>
+
+
+
+
+
+
+
 
 
 
@@ -58,26 +73,7 @@
                          action="#{newPersonBean.newPersonButtonAction}"
                          style="margin-right:20px;" styleClass="ui-priority-primary" />
 
-        <p:commandButton process="peopleDT"
-                         update=":DTform"
-                         value="Edit"
-                         oncomplete="PF('personDialog').show()"
-                         style="margin-right:20px;" styleClass="ui-priority-primary"/>
 
-        <p:dialog header="Person Info" widgetVar="personDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-            <p:outputPanel id="personDetail" rendered="#{not empty personsBean.selectedPerson}" style="text-align:center;">
-                <p:panelGrid  columns="2"  columnClasses="label,value">
-
-                    <h:outputText value="Id:" />
-                    <h:outputText value="#{personsBean.selectedPerson.id}" />
-
-                    <h:outputText value="Year" />
-                    <h:outputText value="#{personsBean.selectedPerson.fullName}" />
-
-
-                </p:panelGrid>
-            </p:outputPanel>
-        </p:dialog>
 
         <h:form>
             <p:commandButton value="Delete" action="#{personsBean.deletePersonButtonAction}" update=":DTform">

@@ -14,5 +14,5 @@ public interface PersonMapper {
 
     void deletePersonById(int personId);
 
-    void editPerson(Person person);
+    void updatePerson(Person person);
 }

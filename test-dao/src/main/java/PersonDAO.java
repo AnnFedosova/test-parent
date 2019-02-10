@@ -51,7 +51,7 @@ public class PersonDAO {
     }
 
     void editPerson(Person person){
-        personMapper.editPerson(person);
+        personMapper.updatePerson(person);
     }
 
 }
