@@ -17,11 +17,17 @@
     </select>
 
     <update
-            id = "updatePerson"
+            id="updatePerson"
             parameterType = "mapper.Person"
     >
-      UPDATE person SET fullName = #{fullName} WHERE ID = #{id}
+      UPDATE person SET "fullName" = #{fullName},
+                        "birthDay" = #{birthDay},
+                        "gender" = #{gender}
+      WHERE id = #{id}
    </update>
+
+
+
 
     <insert
             id="addPerson"
