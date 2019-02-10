@@ -5,27 +5,13 @@
       xmlns:jsp="http://java.sun.com/JSP/Page"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
 >
 <h:head>
     <title>People table</title>
 </h:head>
 
 <h:body>
-
-    <h1>People table</h1>
-
-    <h:form>
-        <p:commandButton value="Add new person" id="addPersonButton" action="#{newPersonBean.newPersonButtonAction}" style="margin-right:20px;" styleClass="ui-priority-primary" />
-
-        <p:commandButton value="Edit person"  disabled="true" id="nonAjax" action="#{newPersonBean.newPersonButtonAction}" style="margin-right:20px;" ajax="true" />
-
-        <p:commandButton value="Delete person" id="deletePersonButton" action="#{deletePersonBean.deletePersonButtonAction(2)}" style="margin-right:20px;"/>
-
-    </h:form>
-
-    <br/>
-
 
 
     <h:form id="form">
@@ -66,9 +52,12 @@
 
 
 
-        <p:dialog header="Person Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
             <p:outputPanel id="carDetail" style="text-align:center;">
                 <p:panelGrid  columns="2" rendered="#{not empty personsBean.selectedPerson}" columnClasses="label,value">
+                    <f:facet name="header">
+                        <p:graphicImage name="demo/images/car/#{dtSelectionView.selectedCar.brand}-big.gif"/>
+                    </f:facet>
 
                     <h:outputText value="Id:" />
                     <h:outputText value="#{personsBean.selectedPerson.id}" />
@@ -84,7 +73,7 @@
         <h:form>
             <p:growl id="deleteMessage" showDetail="true" />
 
-            <p:commandButton value="Delete" action="#{personsBean.deletePersonButtonAction}" update="deleteMessage">
+            <p:commandButton value="Destroy the World" action="#{personsBean.deletePersonButtonAction}" update="deleteMessage">
                 <p:confirm header="Confirmation" deleteMessage="Are you sure?"  />
             </p:commandButton>
 
@@ -95,8 +84,6 @@
         </h:form>
 
     </h:form>
-
-
 
 </h:body>
 </html>

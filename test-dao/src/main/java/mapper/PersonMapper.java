@@ -11,4 +11,6 @@ public interface PersonMapper {
     List<mapper.Person> getAllPersons();
 
     void addPerson(mapper.Person newPerson);
+
+    void deletePersonById(int personId);
 }

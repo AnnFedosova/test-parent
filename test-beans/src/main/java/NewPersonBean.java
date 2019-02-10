@@ -20,7 +20,7 @@ public class NewPersonBean {
     }
 
     public void newPersonButtonAction(){
-        Map<String,Object> options = new HashMap<String, Object>();
+        Map<String,Object> options = new HashMap<>();
         options.put("resizable", true); //тянуть мышкой за угол, чтоб изменить размер
         PrimeFaces.current().dialog().openDynamic("newPerson", options, null); //открыть диалоговое окно
     }

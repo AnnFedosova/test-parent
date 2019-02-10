@@ -21,8 +21,14 @@
             useGeneratedKeys="true"
             keyProperty="id"
     >
-  insert into person ("fullName", "birthDay", "gender")
-  values (#{fullName},#{birthDay},#{gender})
+      insert into person ("fullName", "birthDay", "gender")
+      values (#{fullName},#{birthDay},#{gender})
   </insert>
+
+    <delete id="deletePersonById"
+            parameterType="java.lang.Integer"
+            >
+        delete from person where id = #{id}
+    </delete>
 
 </mapper>

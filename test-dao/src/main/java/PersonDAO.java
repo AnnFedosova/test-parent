@@ -57,4 +57,10 @@ public class PersonDAO {
         InitSession();
         personMapper.addPerson(person);
     }
+
+    public void deletePersonById(int personId)
+    {
+        InitSession();
+        personMapper.deletePersonById(personId);
+    }
 }

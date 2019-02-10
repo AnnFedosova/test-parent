@@ -1,36 +1,25 @@
 import mapper.Person;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import java.util.List;
 
 @ManagedBean(name = "personsBean", eager = true)
+@ViewScoped
+@SessionScoped
 public class PersonsBean {
 
-    private String fullName = "Niccccc";
-
-
-    public String getMessage() {
-        return "Hello PersonBean!";
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    //private PersonDAO personDAO;
+    private Person selectedPerson;
     private List<Person> persons;
     private Person person;
-
 
     public PersonsBean()
     {
         PersonDAO personDAO = new PersonDAO();
         persons = personDAO.getPersons();
         person = personDAO.getPersonById(1);
+        selectedPerson = new Person();
     }
 
     public List<Person> getPersons() {
@@ -47,5 +36,18 @@ public class PersonsBean {
 
     public void setPersons(List<Person> persons) {
         this.persons = persons;
+    }
+
+    public Person getSelectedPerson() {
+        return selectedPerson;
+    }
+
+    public void setSelectedPerson(Person selectedPerson) {
+        this.selectedPerson = selectedPerson;
+    }
+
+    public void deletePersonButtonAction(){
+        PersonDAO personDAO = new PersonDAO();
+        personDAO.deletePersonById(selectedPerson.getId());
     }
 }

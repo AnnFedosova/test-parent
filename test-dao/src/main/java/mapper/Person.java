@@ -48,7 +48,6 @@ public class Person {
     public void setBirthDay(Date birthDay) {
         this.birthDay = birthDay;
     }
-
     public String getGender() {
         return gender;
     }
