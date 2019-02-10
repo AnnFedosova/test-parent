@@ -13,4 +13,6 @@ public interface PersonMapper {
     void addPerson(mapper.Person newPerson);
 
     void deletePersonById(int personId);
+
+    void editPerson(Person person);
 }

@@ -14,21 +14,11 @@
 <h:body>
 
     <h1>People table</h1>
-
-    <h:form>
-        <p:commandButton value="Add new person" id="addPersonButton" action="#{newPersonBean.newPersonButtonAction}" style="margin-right:20px;" styleClass="ui-priority-primary" />
-
-        <p:commandButton value="Edit person"  disabled="true" id="nonAjax" action="#{newPersonBean.newPersonButtonAction}" style="margin-right:20px;" ajax="true" />
-
-        <p:commandButton value="Delete person" id="deletePersonButton" action="#{deletePersonBean.deletePersonButtonAction(2)}" style="margin-right:20px;"/>
-
-    </h:form>
-
     <br/>
 
 
 
-    <h:form id="form">
+    <h:form id="DTform">
 
 
         <p:dataTable id="peopleDT"
@@ -56,15 +46,21 @@
                 <h:outputText value="#{person.gender}" />
             </p:column>
 
-            <f:facet name="footer">
-                <p:commandButton process="peopleDT"
-                                 update=":form:carDetail"
-                                 value="View"
-                                 oncomplete="PF('carDialog').show()" />
-            </f:facet>
+
+
+
         </p:dataTable>
 
+        <p:commandButton process="peopleDT"
+                         update=":DTform:carDetail"
+                         value="Edit"
+                         oncomplete="PF('carDialog').show()"
+                         style="margin-right:20px;" styleClass="ui-priority-primary"/>
 
+        <p:commandButton value="Add new person"
+                         id="addPersonButton"
+                         action="#{newPersonBean.newPersonButtonAction}"
+                         style="margin-right:20px;" styleClass="ui-priority-primary" />
 
         <p:dialog header="Person Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
             <p:outputPanel id="carDetail" style="text-align:center;">
@@ -82,14 +78,12 @@
         </p:dialog>
 
         <h:form>
-            <p:growl id="deleteMessage" showDetail="true" />
-
-            <p:commandButton value="Delete" action="#{personsBean.deletePersonButtonAction}" update="deleteMessage">
-                <p:confirm header="Confirmation" deleteMessage="Are you sure?"  />
+            <p:commandButton value="Delete" action="#{personsBean.deletePersonButtonAction}" update=":DTform">
+                <p:confirm header="Delete selected person?" message="Are you sure?"  />
             </p:commandButton>
 
             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes"  />
+                <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
                 <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no"  />
             </p:confirmDialog>
         </h:form>

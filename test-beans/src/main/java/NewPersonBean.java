@@ -28,6 +28,7 @@ public class NewPersonBean {
     public void addNewPerson(){
         PersonDAO personDAO = new PersonDAO();
         personDAO.addPerson(person);
+        PrimeFaces.current().dialog().closeDynamic("newPerson");
     }
 
     public Person getPerson() {

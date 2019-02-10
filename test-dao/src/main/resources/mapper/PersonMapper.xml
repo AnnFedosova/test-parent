@@ -30,5 +30,14 @@
             >
         delete from person where id = #{id}
     </delete>
+    
+    <update id="updatePerson"
+            parameterType="mapper.Person"
+            >
+        update person set person.fullName = #{fullName},
+                          person.birthDay = #{birthDay},
+                          person.gender = #{gender}
+                      where person.id = #{id}
+    </update>
 
 </mapper>

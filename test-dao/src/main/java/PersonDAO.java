@@ -12,7 +12,9 @@ public class PersonDAO {
 
     private PersonMapper personMapper;
 
-    public PersonDAO(){}
+    public PersonDAO(){
+        InitSession();
+    }
     private SqlSessionFactory sqlSessionFactory;
     Reader reader = null;
 
@@ -27,40 +29,29 @@ public class PersonDAO {
         }
     }
 
-/*
-    void CommitSession()
-    {
-        //TODO сделать коммит
-        sqlSessionFactory
-        this.session.commit();
-        this.session.close();
-    }*/
-
-
     public List<Person> getPersons()
     {
-        InitSession();
         List<Person> personList = personMapper.getAllPersons();
-        //CommitSession();
-
         return personList;
     }
 
     public Person getPersonById(int personId)
     {
-        InitSession();
         return personMapper.getPersonById(personId);
     }
 
-    public void addPerson(Person person)
+    void addPerson(Person person)
     {
-        InitSession();
         personMapper.addPerson(person);
     }
 
-    public void deletePersonById(int personId)
+    void deletePersonById(int personId)
     {
-        InitSession();
         personMapper.deletePersonById(personId);
     }
+
+    void editPerson(Person person){
+        personMapper.editPerson(person);
+    }
+
 }
